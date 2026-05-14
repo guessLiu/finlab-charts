@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+.eggs/
+
+# Backups (auto-generated, not tracked)
+Watchlist/backups/
+
+# Claude settings (local-only)
+.claude/
+*/.claude/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
