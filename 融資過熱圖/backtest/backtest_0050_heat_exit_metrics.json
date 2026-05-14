@@ -1,0 +1,130 @@
+{
+  "assumptions": {
+    "initial_capital": 1000000,
+    "price": "0050 adjusted weekly close from finlab etl:adj_close",
+    "margin_heat": "TWSE margin trading value weekly close, 104-week rolling percentile, hot >= 80%",
+    "exit": "hot and 0050 weekly close below weekly MA20 for 3 consecutive weeks",
+    "reentry": "after cash, arm reentry when margin percentile is below 40%, then buy when 0050 weekly close is above weekly MA20",
+    "costs_taxes_cash_interest": "ignored"
+  },
+  "strategy": {
+    "start": "2009-01-04",
+    "end": "2026-05-10",
+    "years": 17.34,
+    "final_value": 23446762.15,
+    "total_return_pct": 2244.68,
+    "cagr_pct": 19.95,
+    "ann_return_pct_arithmetic": 19.68,
+    "ann_vol_pct": 15.88,
+    "sharpe": 1.239,
+    "mdd_pct": -23.06,
+    "mdd_date": "2022-10-30"
+  },
+  "buy_and_hold": {
+    "start": "2009-01-04",
+    "end": "2026-05-10",
+    "years": 17.34,
+    "final_value": 19979237.03,
+    "total_return_pct": 1897.92,
+    "cagr_pct": 18.85,
+    "ann_return_pct_arithmetic": 19.04,
+    "ann_vol_pct": 17.63,
+    "sharpe": 1.0799,
+    "mdd_pct": -32.48,
+    "mdd_date": "2022-10-30"
+  },
+  "exposure_pct": 82.53,
+  "trade_count": 9,
+  "trades": [
+    {
+      "date": "2009-01-04",
+      "action": "BUY_INITIAL",
+      "price": 38.21,
+      "shares": 26172.61403,
+      "cash": 0.0,
+      "equity": 1000000,
+      "margin_pct": 5.83,
+      "zone": "depressed"
+    },
+    {
+      "date": "2011-03-27",
+      "action": "SELL",
+      "price": 73.11,
+      "shares": 0.0,
+      "cash": 1913588.06,
+      "equity": 1913588.06,
+      "margin_pct": 87.5,
+      "zone": "hot"
+    },
+    {
+      "date": "2012-01-15",
+      "action": "BUY",
+      "price": 65.01,
+      "shares": 29436.244586,
+      "cash": 0.0,
+      "equity": 1913588.06,
+      "margin_pct": 0.96,
+      "zone": "depressed"
+    },
+    {
+      "date": "2017-12-17",
+      "action": "SELL",
+      "price": 121.44,
+      "shares": 0.0,
+      "cash": 3574700.2,
+      "equity": 3574700.2,
+      "margin_pct": 99.04,
+      "zone": "hot"
+    },
+    {
+      "date": "2019-02-17",
+      "action": "BUY",
+      "price": 119.84,
+      "shares": 29828.385466,
+      "cash": 0.0,
+      "equity": 3574700.2,
+      "margin_pct": 1.92,
+      "zone": "depressed"
+    },
+    {
+      "date": "2021-10-31",
+      "action": "SELL",
+      "price": 233.0,
+      "shares": 0.0,
+      "cash": 6949982.89,
+      "equity": 6949982.89,
+      "margin_pct": 81.73,
+      "zone": "hot"
+    },
+    {
+      "date": "2022-08-21",
+      "action": "BUY",
+      "price": 216.5,
+      "shares": 32101.895925,
+      "cash": 0.0,
+      "equity": 6949982.89,
+      "margin_pct": 28.85,
+      "zone": "low"
+    },
+    {
+      "date": "2025-03-16",
+      "action": "SELL",
+      "price": 347.8,
+      "shares": 0.0,
+      "cash": 11164944.41,
+      "equity": 11164944.41,
+      "margin_pct": 88.46,
+      "zone": "hot"
+    },
+    {
+      "date": "2025-06-15",
+      "action": "BUY",
+      "price": 363.5,
+      "shares": 30715.039568,
+      "cash": 0.0,
+      "equity": 11164944.41,
+      "margin_pct": 20.19,
+      "zone": "low"
+    }
+  ]
+}
