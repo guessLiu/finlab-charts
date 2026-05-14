@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<title>大跌後族群跌幅掃描</title>
+<style>
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", sans-serif; margin: 32px; color: #1f2933; background: #f0f4f8; }
+h1 { margin: 0 0 6px; font-size: 28px; font-weight: 800; letter-spacing: -.5px; }
+h2 { margin: 32px 0 10px; font-size: 13px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #627d98; border-bottom: 2px solid #d9e2ec; padding-bottom: 6px; }
+.meta-card { display: flex; flex-wrap: wrap; background: white; border: 1px solid #d9e2ec; border-radius: 10px; margin-bottom: 24px; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,.06); }
+.meta-item { flex: 1; min-width: 160px; padding: 14px 22px; border-right: 1px solid #e4e7eb; }
+.meta-item:last-child { border-right: none; }
+.meta-label { font-size: 11px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; color: #829ab1; margin-bottom: 4px; }
+.meta-value { font-size: 18px; font-weight: 700; color: #1f2933; }
+table { width: 100%; border-collapse: collapse; background: white; border: 1px solid #d9e2ec; }
+th, td { padding: 9px 12px; border-bottom: 1px solid #e4e7eb; text-align: left; white-space: nowrap; }
+th { cursor: pointer; user-select: none; background: #f0f4f8; position: sticky; top: 0; font-weight: 600; }
+th:hover { background: #e4edf6; }
+td:nth-child(n+4), th:nth-child(n+4) { text-align: right; }
+.neg { color: #c0392b; }
+.pos { color: #0a6b3a; }
+.wrap { overflow-x: auto; margin-bottom: 16px; box-shadow: 0 1px 4px rgba(0,0,0,.05); }
+.theme-color-1 { background: #fff1f2; }
+.theme-color-2 { background: #fff7ed; }
+.theme-color-3 { background: #fefce8; }
+.theme-color-4 { background: #ecfeff; }
+.theme-color-5 { background: #eff6ff; }
+.theme-color-6 { background: #f5f3ff; }
+.theme-color-1 td:first-child { border-left: 4px solid #fb7185; }
+.theme-color-2 td:first-child { border-left: 4px solid #fdba74; }
+.theme-color-3 td:first-child { border-left: 4px solid #fde047; }
+.theme-color-4 td:first-child { border-left: 4px solid #67e8f9; }
+.theme-color-5 td:first-child { border-left: 4px solid #93c5fd; }
+.theme-color-6 td:first-child { border-left: 4px solid #c4b5fd; }
+.src-cell { text-align: left !important; }
+.badge { display: inline-block; padding: 1px 6px; border-radius: 3px; font-size: 10px; font-weight: 700; }
+.badge-avg { background: #fff1f2; color: #be123c; }
+.badge-med { background: #eff6ff; color: #1d4ed8; }
+.badge-both { background: #f0fdf4; color: #15803d; }
+.disp-badge { display: inline-block; margin-top: 4px; padding: 2px 8px; border-radius: 99px; font-size: 11px; font-weight: 700; background: #f0f4f8; }
+</style>
+</head>
+<body>
+<h1>大跌後族群跌幅掃描</h1>
+<div class="meta-card">
+  <div class="meta-item">
+    <div class="meta-label">大盤區間</div>
+    <div class="meta-value"><span style="color:#dc2626">2026-05-07</span> → <span style="color:#16a34a">2026-05-12</span></div>
+  </div>
+  <div class="meta-item">
+    <div class="meta-label">TAIEX</div>
+    <div class="meta-value">41,934 → 41,898</div>
+  </div>
+  <div class="meta-item">
+    <div class="meta-label">大盤跌幅</div>
+    <div class="meta-value neg">-35 點　-0.08%</div>
+  </div>
+  <div class="meta-item">
+    <div class="meta-label">類股分散度（σ）</div>
+    <div class="meta-value" style="color:#b45309">2.96%</div>
+    <div class="disp-badge" style="color:#b45309">分散度不足，效果可能較弱</div>
+  </div>
+</div>
+
+<h2>族群跌幅排序</h2>
+<div class="wrap"><table class="sortable">
+<thead><tr><th>族群</th><th>平均表現</th><th>中位數</th><th>下跌比例</th><th>股票數</th><th>總市值</th></tr></thead>
+<tbody><tr class="theme-color-1"><td>銅箔基板</td><td data-sort='-0.0264525530'>-2.65%</td><td data-sort='-0.0207936954'>-2.08%</td><td data-sort='0.6666666667'>66.67%</td><td data-sort='6'>6</td><td>23,439.1億</td></tr><tr class="theme-color-2"><td>PCB設備</td><td data-sort='-0.0225551357'>-2.26%</td><td data-sort='0.0125740681'>1.26%</td><td data-sort='0.5000000000'>50.00%</td><td data-sort='4'>4</td><td>2,848.0億</td></tr><tr class="theme-color-3"><td>PCB/載板</td><td data-sort='-0.0196774511'>-1.97%</td><td data-sort='-0.0234375000'>-2.34%</td><td data-sort='0.7272727273'>72.73%</td><td data-sort='11'>11</td><td>64,443.6億</td></tr><tr><td>光電/LED</td><td data-sort='-0.0196453643'>-1.96%</td><td data-sort='-0.0062893082'>-0.63%</td><td data-sort='0.6666666667'>66.67%</td><td data-sort='3'>3</td><td>1,185.6億</td></tr><tr><td>資訊服務</td><td data-sort='-0.0184085700'>-1.84%</td><td data-sort='-0.0122699387'>-1.23%</td><td data-sort='0.7692307692'>76.92%</td><td data-sort='13'>13</td><td>1,488.3億</td></tr><tr class="theme-color-4"><td>晶圓代工</td><td data-sort='-0.0131587337'>-1.32%</td><td data-sort='-0.0259892689'>-2.60%</td><td data-sort='0.7500000000'>75.00%</td><td data-sort='4'>4</td><td>603,732.4億</td></tr><tr><td>CCL</td><td data-sort='-0.0101822816'>-1.02%</td><td data-sort='-0.0043182833'>-0.43%</td><td data-sort='0.5000000000'>50.00%</td><td data-sort='4'>4</td><td>23,151.8億</td></tr><tr><td>數位雲端</td><td data-sort='-0.0081584457'>-0.82%</td><td data-sort='-0.0023584906'>-0.24%</td><td data-sort='0.5000000000'>50.00%</td><td data-sort='12'>12</td><td>1,660.7億</td></tr><tr><td>連接器</td><td data-sort='-0.0069873939'>-0.70%</td><td data-sort='-0.0138067061'>-1.38%</td><td data-sort='0.6666666667'>66.67%</td><td data-sort='9'>9</td><td>45,895.1億</td></tr><tr><td>EMS/代工</td><td data-sort='-0.0007680028'>-0.08%</td><td data-sort='-0.0138067061'>-1.38%</td><td data-sort='0.6666666667'>66.67%</td><td data-sort='3'>3</td><td>47,559.7億</td></tr><tr><td>電源</td><td data-sort='-0.0002126997'>-0.02%</td><td data-sort='0.0069930070'>0.70%</td><td data-sort='0.3333333333'>33.33%</td><td data-sort='3'>3</td><td>58,124.8億</td></tr><tr><td>散熱模組</td><td data-sort='0.0017421874'>0.17%</td><td data-sort='-0.0093457944'>-0.93%</td><td data-sort='0.6666666667'>66.67%</td><td data-sort='15'>15</td><td>76,169.5億</td></tr><tr><td>散熱</td><td data-sort='0.0020711646'>0.21%</td><td data-sort='-0.0014677690'>-0.15%</td><td data-sort='0.5000000000'>50.00%</td><td data-sort='4'>4</td><td>12,070.0億</td></tr><tr><td>光電</td><td data-sort='0.0034013120'>0.34%</td><td data-sort='-0.0107913669'>-1.08%</td><td data-sort='0.5777777778'>57.78%</td><td data-sort='45'>45</td><td>17,171.0億</td></tr><tr><td>AI伺服器</td><td data-sort='0.0052700948'>0.53%</td><td data-sort='-0.0118623406'>-1.19%</td><td data-sort='0.7142857143'>71.43%</td><td data-sort='14'>14</td><td>185,073.3億</td></tr><tr><td>電子零組件</td><td data-sort='0.0082985373'>0.83%</td><td data-sort='-0.0016239183'>-0.16%</td><td data-sort='0.5256410256'>52.56%</td><td data-sort='78'>78</td><td>28,246.1億</td></tr><tr><td>矽晶圓</td><td data-sort='0.0094310477'>0.94%</td><td data-sort='0.0091466751'>0.91%</td><td data-sort='0.3750000000'>37.50%</td><td data-sort='8'>8</td><td>7,003.5億</td></tr><tr><td>其他電子</td><td data-sort='0.0149320856'>1.49%</td><td data-sort='-0.0037665814'>-0.38%</td><td data-sort='0.5681818182'>56.82%</td><td data-sort='44'>44</td><td>14,221.4億</td></tr><tr><td>電機</td><td data-sort='0.0153262822'>1.53%</td><td data-sort='0.0066225166'>0.66%</td><td data-sort='0.4285714286'>42.86%</td><td data-sort='35'>35</td><td>19,149.3億</td></tr><tr><td>伺服器代工</td><td data-sort='0.0210387708'>2.10%</td><td data-sort='-0.0138067061'>-1.38%</td><td data-sort='0.8000000000'>80.00%</td><td data-sort='5'>5</td><td>65,149.0億</td></tr><tr><td>電腦週邊</td><td data-sort='0.0213120261'>2.13%</td><td data-sort='-0.0020483168'>-0.20%</td><td data-sort='0.5185185185'>51.85%</td><td data-sort='54'>54</td><td>29,169.9億</td></tr><tr><td>晶圓製造</td><td data-sort='0.0240778778'>2.41%</td><td data-sort='0.0225988701'>2.26%</td><td data-sort='0.2857142857'>28.57%</td><td data-sort='21'>21</td><td>631,886.2億</td></tr><tr><td>半導體</td><td data-sort='0.0273044146'>2.73%</td><td data-sort='0.0142046108'>1.42%</td><td data-sort='0.3750000000'>37.50%</td><td data-sort='96'>96</td><td>675,445.7億</td></tr><tr><td>伺服器/AI</td><td data-sort='0.0361735682'>3.62%</td><td data-sort='-0.0083780561'>-0.84%</td><td data-sort='0.7500000000'>75.00%</td><td data-sort='4'>4</td><td>25,822.9億</td></tr><tr><td>網通</td><td data-sort='0.0380013853'>3.80%</td><td data-sort='0.0166666667'>1.67%</td><td data-sort='0.3111111111'>31.11%</td><td data-sort='45'>45</td><td>46,928.8億</td></tr><tr><td>電子通路</td><td data-sort='0.0409673761'>4.10%</td><td data-sort='0.0158604657'>1.59%</td><td data-sort='0.4000000000'>40.00%</td><td data-sort='20'>20</td><td>13,188.7億</td></tr><tr><td>電源供應器</td><td data-sort='0.0411705534'>4.12%</td><td data-sort='-0.0039138943'>-0.39%</td><td data-sort='0.5714285714'>57.14%</td><td data-sort='7'>7</td><td>63,644.1億</td></tr><tr><td>記憶體模組</td><td data-sort='0.0461310563'>4.61%</td><td data-sort='0.0040322581'>0.40%</td><td data-sort='0.4000000000'>40.00%</td><td data-sort='5'>5</td><td>5,253.8億</td></tr><tr><td>太陽能</td><td data-sort='0.0473571927'>4.74%</td><td data-sort='0.0197368421'>1.97%</td><td data-sort='0.3333333333'>33.33%</td><td data-sort='3'>3</td><td>2,677.9億</td></tr><tr><td>玻璃陶瓷</td><td data-sort='0.0503310069'>5.03%</td><td data-sort='0.0042372881'>0.42%</td><td data-sort='0.3333333333'>33.33%</td><td data-sort='3'>3</td><td>2,189.8億</td></tr><tr><td>記憶體</td><td data-sort='0.0516217461'>5.16%</td><td data-sort='0.0657894737'>6.58%</td><td data-sort='0.3333333333'>33.33%</td><td data-sort='9'>9</td><td>24,354.3億</td></tr><tr><td>砷化鎵</td><td data-sort='0.0530774587'>5.31%</td><td data-sort='0.0482318841'>4.82%</td><td data-sort='0.0000000000'>0.00%</td><td data-sort='4'>4</td><td>4,017.0億</td></tr><tr><td>被動元件</td><td data-sort='0.0599640416'>6.00%</td><td data-sort='0.0689655172'>6.90%</td><td data-sort='0.2666666667'>26.67%</td><td data-sort='15'>15</td><td>71,854.6億</td></tr><tr><td>功率半導體</td><td data-sort='0.0660389669'>6.60%</td><td data-sort='0.0632801476'>6.33%</td><td data-sort='0.0000000000'>0.00%</td><td data-sort='4'>4</td><td>1,227.7億</td></tr><tr><td>電源管理IC</td><td data-sort='0.0669021059'>6.69%</td><td data-sort='0.0746887967'>7.47%</td><td data-sort='0.0000000000'>0.00%</td><td data-sort='15'>15</td><td>63,691.6億</td></tr><tr><td>IC設計</td><td data-sort='0.0670300359'>6.70%</td><td data-sort='0.0696637900'>6.97%</td><td data-sort='0.0769230769'>7.69%</td><td data-sort='26'>26</td><td>90,638.9億</td></tr><tr><td>面板</td><td data-sort='0.0754424665'>7.54%</td><td data-sort='0.0257049816'>2.57%</td><td data-sort='0.2500000000'>25.00%</td><td data-sort='8'>8</td><td>11,466.0億</td></tr></tbody>
+</table></div>
+
+<h2>前三族群成分股　<small style="font-weight:400;font-size:11px;color:#829ab1">均＝平均前三・中＝中位數前三・均＋中＝兩者皆入選</small></h2>
+<div class="wrap"><table class="sortable" id="stocks-table">
+<thead><tr><th data-cycle-theme="1">族群</th><th>代號</th><th>名稱</th><th>區間表現</th><th>起始價</th><th>最近價</th><th>市值</th><th>收錄</th></tr></thead>
+<tbody><tr class="theme-color-3"><td>PCB/載板</td><td>3376</td><td>新日興</td><td data-sort='-0.0511627907'>-5.12%</td><td data-sort='215.0000000000'>215.00</td><td data-sort='204.0000000000'>204.00</td><td data-sort='39935815200.00'>399.4億</td><td class="src-cell"><span class="badge badge-both">均＋中</span></td></tr><tr class="theme-color-3"><td>PCB/載板</td><td>8046</td><td>南亞電路板</td><td data-sort='-0.0496304118'>-4.96%</td><td data-sort='947.0000000000'>947.00</td><td data-sort='900.0000000000'>900.00</td><td data-sort='581548950000.00'>5,815.5億</td><td class="src-cell"><span class="badge badge-both">均＋中</span></td></tr><tr class="theme-color-3"><td>PCB/載板</td><td>4958</td><td>臻鼎科技控股</td><td data-sort='-0.0468384075'>-4.68%</td><td data-sort='427.0000000000'>427.00</td><td data-sort='407.0000000000'>407.00</td><td data-sort='435733467400.00'>4,357.3億</td><td class="src-cell"><span class="badge badge-both">均＋中</span></td></tr><tr class="theme-color-3"><td>PCB/載板</td><td>2368</td><td>金像電子(股)公司</td><td data-sort='-0.0413793103'>-4.14%</td><td data-sort='1450.0000000000'>1,450.00</td><td data-sort='1390.0000000000'>1,390.00</td><td data-sort='709635171000.00'>7,096.4億</td><td class="src-cell"><span class="badge badge-both">均＋中</span></td></tr><tr class="theme-color-3"><td>PCB/載板</td><td>3044</td><td>健鼎科技</td><td data-sort='-0.0380000000'>-3.80%</td><td data-sort='500.0000000000'>500.00</td><td data-sort='481.0000000000'>481.00</td><td data-sort='252816437900.00'>2,528.2億</td><td class="src-cell"><span class="badge badge-both">均＋中</span></td></tr><tr class="theme-color-3"><td>PCB/載板</td><td>3037</td><td>欣興電子</td><td data-sort='-0.0234375000'>-2.34%</td><td data-sort='896.0000000000'>896.00</td><td data-sort='875.0000000000'>875.00</td><td data-sort='1390590687500.00'>13,905.9億</td><td class="src-cell"><span class="badge badge-both">均＋中</span></td></tr><tr class="theme-color-3"><td>PCB/載板</td><td>2383</td><td>台光電子材料</td><td data-sort='-0.0120967742'>-1.21%</td><td data-sort='4960.0000000000'>4,960.00</td><td data-sort='4900.0000000000'>4,900.00</td><td data-sort='1755773390000.00'>17,557.7億</td><td class="src-cell"><span class="badge badge-both">均＋中</span></td></tr><tr class="theme-color-3"><td>PCB/載板</td><td>3665</td><td>貿聯控股(BizLink Holding Inc.)</td><td data-sort='-0.0017985612'>-0.18%</td><td data-sort='2780.0000000000'>2,780.00</td><td data-sort='2775.0000000000'>2,775.00</td><td data-sort='542287447500.00'>5,422.9億</td><td class="src-cell"><span class="badge badge-both">均＋中</span></td></tr><tr class="theme-color-3"><td>PCB/載板</td><td>4542</td><td>科嶠工業</td><td data-sort='0.0023474178'>0.23%</td><td data-sort='213.0000000000'>213.00</td><td data-sort='213.5000000000'>213.50</td><td data-sort='7384196400.00'>73.8億</td><td class="src-cell"><span class="badge badge-both">均＋中</span></td></tr><tr class="theme-color-3"><td>PCB/載板</td><td>6274</td><td>台燿科技</td><td data-sort='0.0034602076'>0.35%</td><td data-sort='1445.0000000000'>1,445.00</td><td data-sort='1450.0000000000'>1,450.00</td><td data-sort='418779430000.00'>4,187.8億</td><td class="src-cell"><span class="badge badge-both">均＋中</span></td></tr><tr class="theme-color-3"><td>PCB/載板</td><td>2313</td><td>華通電腦</td><td data-sort='0.0420841683'>4.21%</td><td data-sort='249.5000000000'>249.50</td><td data-sort='260.0000000000'>260.00</td><td data-sort='309873356000.00'>3,098.7億</td><td class="src-cell"><span class="badge badge-both">均＋中</span></td></tr><tr class="theme-color-2"><td>PCB設備</td><td>1785</td><td>光洋應用材料科技</td><td data-sort='-0.1432432432'>-14.32%</td><td data-sort='185.0000000000'>185.00</td><td data-sort='158.5000000000'>158.50</td><td data-sort='94466348700.00'>944.7億</td><td class="src-cell"><span class="badge badge-avg">均</span></td></tr><tr class="theme-color-2"><td>PCB設備</td><td>3563</td><td>牧德科技</td><td data-sort='-0.0012254902'>-0.12%</td><td data-sort='816.0000000000'>816.00</td><td data-sort='815.0000000000'>815.00</td><td data-sort='52128052000.00'>521.3億</td><td class="src-cell"><span class="badge badge-avg">均</span></td></tr><tr class="theme-color-2"><td>PCB設備</td><td>6664</td><td>群翊工業</td><td data-sort='0.0263736264'>2.64%</td><td data-sort='455.0000000000'>455.00</td><td data-sort='467.0000000000'>467.00</td><td data-sort='28396682200.00'>284.0億</td><td class="src-cell"><span class="badge badge-avg">均</span></td></tr><tr class="theme-color-2"><td>PCB設備</td><td>5536</td><td>聖暉工程科技</td><td data-sort='0.0278745645'>2.79%</td><td data-sort='861.0000000000'>861.00</td><td data-sort='885.0000000000'>885.00</td><td data-sort='109811685000.00'>1,098.1億</td><td class="src-cell"><span class="badge badge-avg">均</span></td></tr><tr class="theme-color-4"><td>晶圓代工</td><td>5347</td><td>世界先進積體電路</td><td data-sort='-0.0835579515'>-8.36%</td><td data-sort='185.5000000000'>185.50</td><td data-sort='170.0000000000'>170.00</td><td data-sort='317403294000.00'>3,174.0億</td><td class="src-cell"><span class="badge badge-med">中</span></td></tr><tr class="theme-color-4"><td>晶圓代工</td><td>6770</td><td>力晶積成電子製造</td><td data-sort='-0.0281690141'>-2.82%</td><td data-sort='63.9000000000'>63.90</td><td data-sort='62.1000000000'>62.10</td><td data-sort='263540209770.00'>2,635.4億</td><td class="src-cell"><span class="badge badge-med">中</span></td></tr><tr class="theme-color-4"><td>晶圓代工</td><td>2330</td><td>台灣積體電路製造</td><td data-sort='-0.0238095238'>-2.38%</td><td data-sort='2310.0000000000'>2,310.00</td><td data-sort='2255.0000000000'>2,255.00</td><td data-sort='58477842747500.00'>584,778.4億</td><td class="src-cell"><span class="badge badge-med">中</span></td></tr><tr class="theme-color-4"><td>晶圓代工</td><td>2303</td><td>聯華電子</td><td data-sort='0.0829015544'>8.29%</td><td data-sort='96.5000000000'>96.50</td><td data-sort='104.5000000000'>104.50</td><td data-sort='1314455820700.00'>13,144.6億</td><td class="src-cell"><span class="badge badge-med">中</span></td></tr><tr class="theme-color-1"><td>銅箔基板</td><td>6672</td><td>騰輝電子國際集團</td><td data-sort='-0.0884955752'>-8.85%</td><td data-sort='226.0000000000'>226.00</td><td data-sort='206.0000000000'>206.00</td><td data-sort='14715548200.00'>147.2億</td><td class="src-cell"><span class="badge badge-both">均＋中</span></td></tr><tr class="theme-color-1"><td>銅箔基板</td><td>6213</td><td>聯茂電子</td><td data-sort='-0.0467445743'>-4.67%</td><td data-sort='299.5000000000'>299.50</td><td data-sort='285.5000000000'>285.50</td><td data-sort='104105005500.00'>1,041.1億</td><td class="src-cell"><span class="badge badge-both">均＋中</span></td></tr><tr class="theme-color-1"><td>銅箔基板</td><td>5498</td><td>凱崴電子</td><td data-sort='-0.0294906166'>-2.95%</td><td data-sort='74.6000000000'>74.60</td><td data-sort='72.4000000000'>72.40</td><td data-sort='14017675320.00'>140.2億</td><td class="src-cell"><span class="badge badge-both">均＋中</span></td></tr><tr class="theme-color-1"><td>銅箔基板</td><td>2383</td><td>台光電子材料</td><td data-sort='-0.0120967742'>-1.21%</td><td data-sort='4960.0000000000'>4,960.00</td><td data-sort='4900.0000000000'>4,900.00</td><td data-sort='1755773390000.00'>17,557.7億</td><td class="src-cell"><span class="badge badge-both">均＋中</span></td></tr><tr class="theme-color-1"><td>銅箔基板</td><td>6274</td><td>台燿科技</td><td data-sort='0.0034602076'>0.35%</td><td data-sort='1445.0000000000'>1,445.00</td><td data-sort='1450.0000000000'>1,450.00</td><td data-sort='418779430000.00'>4,187.8億</td><td class="src-cell"><span class="badge badge-both">均＋中</span></td></tr><tr class="theme-color-1"><td>銅箔基板</td><td>8039</td><td>台虹科技</td><td data-sort='0.0146520147'>1.47%</td><td data-sort='136.5000000000'>136.50</td><td data-sort='138.5000000000'>138.50</td><td data-sort='36518156500.00'>365.2億</td><td class="src-cell"><span class="badge badge-both">均＋中</span></td></tr></tbody>
+</table></div>
+
+<script>
+const themeCycleOrder = ["銅箔基板", "PCB設備", "PCB/載板", "晶圓代工"];
+let themeCycleIndex = -1;
+document.querySelectorAll("td").forEach(td => {
+  const n = Number(td.dataset.sort);
+  if (!Number.isNaN(n)) td.classList.add(n < 0 ? "neg" : "pos");
+});
+document.querySelectorAll("table.sortable th").forEach(th => {
+  th.addEventListener("click", () => {
+    const table = th.closest("table");
+    const tbody = table.querySelector("tbody");
+    const rows = Array.from(tbody.querySelectorAll("tr"));
+    const colIdx = Array.from(th.parentElement.children).indexOf(th);
+    if (table.id === "stocks-table" && colIdx === 0) {
+      const themes = themeCycleOrder.length
+        ? themeCycleOrder
+        : Array.from(new Set(rows.map(r => r.children[0].innerText.trim())));
+      if (!themes.length) return;
+      themeCycleIndex = (themeCycleIndex + 1) % themes.length;
+      const selected = themes[themeCycleIndex];
+      table.querySelectorAll("th").forEach(h => { h.dataset.asc = ""; });
+      th.textContent = "族群：" + selected + " ↑";
+      rows.sort((a, b) => {
+        const aHit = a.children[0].innerText.trim() === selected;
+        const bHit = b.children[0].innerText.trim() === selected;
+        if (aHit !== bHit) return aHit ? -1 : 1;
+        const ar = Number(a.children[3].dataset.sort);
+        const br = Number(b.children[3].dataset.sort);
+        return ar - br;
+      });
+      rows.forEach(r => tbody.appendChild(r));
+      return;
+    }
+    if (table.id === "stocks-table") {
+      themeCycleIndex = -1;
+      const thTh = table.querySelector("th[data-cycle-theme]");
+      if (thTh) thTh.textContent = "族群";
+    }
+    const asc = th.dataset.asc !== "1";
+    table.querySelectorAll("th").forEach(h => { h.dataset.asc = ""; });
+    th.dataset.asc = asc ? "1" : "0";
+    rows.sort((a, b) => {
+      const av = a.children[colIdx].dataset.sort ?? a.children[colIdx].innerText;
+      const bv = b.children[colIdx].dataset.sort ?? b.children[colIdx].innerText;
+      const an = Number(av), bn = Number(bv);
+      const cmp = Number.isNaN(an) || Number.isNaN(bn) ? String(av).localeCompare(String(bv), "zh-Hant") : an - bn;
+      return asc ? cmp : -cmp;
+    });
+    rows.forEach(r => tbody.appendChild(r));
+  });
+});
+</script>
+</body>
+</html>
