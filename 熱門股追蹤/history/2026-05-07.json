@@ -1,0 +1,102 @@
+{
+  "EMS/代工": {
+    "count": 1,
+    "avg_hot_pct": 1.0,
+    "avg_accel": 2.533,
+    "avg_ret_5d": 0.1267,
+    "stocks": [
+      "2317"
+    ]
+  },
+  "IC設計": {
+    "count": 2,
+    "avg_hot_pct": 0.843,
+    "avg_accel": 2.98,
+    "avg_ret_5d": 0.2739,
+    "stocks": [
+      "4919",
+      "3443"
+    ]
+  },
+  "光電": {
+    "count": 1,
+    "avg_hot_pct": 0.98,
+    "avg_accel": 2.455,
+    "avg_ret_5d": 0.1331,
+    "stocks": [
+      "6278"
+    ]
+  },
+  "其他電子": {
+    "count": 1,
+    "avg_hot_pct": 0.988,
+    "avg_accel": 6.9,
+    "avg_ret_5d": 0.2412,
+    "stocks": [
+      "2354"
+    ]
+  },
+  "半導體": {
+    "count": 6,
+    "avg_hot_pct": 0.954,
+    "avg_accel": 3.212,
+    "avg_ret_5d": 0.3137,
+    "stocks": [
+      "6526",
+      "6451",
+      "6182",
+      "6257",
+      "8150",
+      "3264"
+    ]
+  },
+  "品牌PC/NB": {
+    "count": 1,
+    "avg_hot_pct": 0.905,
+    "avg_accel": 2.097,
+    "avg_ret_5d": 0.0867,
+    "stocks": [
+      "2357"
+    ]
+  },
+  "矽晶圓": {
+    "count": 3,
+    "avg_hot_pct": 0.981,
+    "avg_accel": 1.839,
+    "avg_ret_5d": 0.3629,
+    "stocks": [
+      "6488",
+      "3532",
+      "5483"
+    ]
+  },
+  "被動元件": {
+    "count": 2,
+    "avg_hot_pct": 0.937,
+    "avg_accel": 4.27,
+    "avg_ret_5d": 0.1123,
+    "stocks": [
+      "3042",
+      "2492"
+    ]
+  },
+  "電腦週邊": {
+    "count": 2,
+    "avg_hot_pct": 0.962,
+    "avg_accel": 2.796,
+    "avg_ret_5d": 0.1429,
+    "stocks": [
+      "2376",
+      "8210"
+    ]
+  },
+  "面板": {
+    "count": 1,
+    "avg_hot_pct": 0.925,
+    "avg_accel": 6.019,
+    "avg_ret_5d": 0.2422,
+    "stocks": [
+      "3481"
+    ]
+  }
+}
