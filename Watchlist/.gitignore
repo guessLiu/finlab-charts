@@ -1,0 +1,12 @@
+# 個人資料（每次啟動自動覆寫）
+notes_auto.json
+stock_watchlist_auto.json
+watchlist_config.json
+
+# 自動備份資料夾
+backups/
+
+# 開發工具腳本
+_make_watchlist_pdf.py
+_*.py
+_*.html
