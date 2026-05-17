@@ -1,8 +1,8 @@
 {
   "IC設計": {
     "count": 3,
-    "avg_hot_pct": 0.946,
-    "avg_accel": 2.473,
+    "avg_hot_pct": 0.956,
+    "avg_accel": 2.707,
     "avg_ret_5d": 0.1931,
     "stocks": [
       "4966",
@@ -10,88 +10,88 @@
       "5269"
     ]
   },
-  "PCB/載板": {
-    "count": 1,
-    "avg_hot_pct": 0.933,
-    "avg_accel": 1.707,
-    "avg_ret_5d": 0.084,
-    "stocks": [
-      "3044"
-    ]
-  },
-  "伺服器/AI": {
-    "count": 1,
-    "avg_hot_pct": 0.984,
-    "avg_accel": 1.763,
-    "avg_ret_5d": 0.0732,
-    "stocks": [
-      "2356"
-    ]
-  },
   "光電": {
-    "count": 2,
-    "avg_hot_pct": 0.988,
-    "avg_accel": 2.353,
-    "avg_ret_5d": 0.2234,
+    "count": 1,
+    "avg_hot_pct": 0.968,
+    "avg_accel": 1.616,
+    "avg_ret_5d": 0.131,
     "stocks": [
-      "6116",
       "3008"
-    ]
-  },
-  "其他電子": {
-    "count": 2,
-    "avg_hot_pct": 0.889,
-    "avg_accel": 2.907,
-    "avg_ret_5d": 0.168,
-    "stocks": [
-      "3587",
-      "3305"
     ]
   },
   "功率半導體": {
     "count": 1,
-    "avg_hot_pct": 0.944,
-    "avg_accel": 3.481,
+    "avg_hot_pct": 0.937,
+    "avg_accel": 3.325,
     "avg_ret_5d": 0.1921,
     "stocks": [
       "2481"
     ]
   },
   "半導體": {
-    "count": 5,
-    "avg_hot_pct": 0.878,
-    "avg_accel": 2.784,
-    "avg_ret_5d": 0.156,
+    "count": 6,
+    "avg_hot_pct": 0.91,
+    "avg_accel": 2.118,
+    "avg_ret_5d": 0.1457,
     "stocks": [
-      "3583",
       "3035",
-      "7734",
+      "3583",
+      "5425",
       "6531",
-      "7769"
+      "7769",
+      "5351"
+    ]
+  },
+  "網通": {
+    "count": 1,
+    "avg_hot_pct": 0.857,
+    "avg_accel": 1.881,
+    "avg_ret_5d": 0.0617,
+    "stocks": [
+      "3491"
+    ]
+  },
+  "被動元件": {
+    "count": 1,
+    "avg_hot_pct": 0.976,
+    "avg_accel": 1.529,
+    "avg_ret_5d": 0.252,
+    "stocks": [
+      "2472"
     ]
   },
   "電子通路": {
     "count": 1,
-    "avg_hot_pct": 0.98,
-    "avg_accel": 5.105,
+    "avg_hot_pct": 0.992,
+    "avg_accel": 5.904,
     "avg_ret_5d": 0.3271,
     "stocks": [
       "3036"
     ]
   },
-  "電機": {
+  "電子零組件": {
     "count": 1,
-    "avg_hot_pct": 0.964,
-    "avg_accel": 1.899,
-    "avg_ret_5d": 0.1553,
+    "avg_hot_pct": 0.798,
+    "avg_accel": 2.344,
+    "avg_ret_5d": 0.1041,
     "stocks": [
-      "2049"
+      "2467"
+    ]
+  },
+  "電機": {
+    "count": 2,
+    "avg_hot_pct": 0.925,
+    "avg_accel": 1.844,
+    "avg_ret_5d": 0.1271,
+    "stocks": [
+      "2049",
+      "1560"
     ]
   },
   "電腦週邊": {
     "count": 1,
     "avg_hot_pct": 1.0,
-    "avg_accel": 5.209,
+    "avg_accel": 4.333,
     "avg_ret_5d": 0.155,
     "stocks": [
       "2377"
@@ -99,8 +99,8 @@
   },
   "面板": {
     "count": 2,
-    "avg_hot_pct": 0.984,
-    "avg_accel": 1.991,
+    "avg_hot_pct": 0.99,
+    "avg_accel": 2.294,
     "avg_ret_5d": 0.2984,
     "stocks": [
       "2409",

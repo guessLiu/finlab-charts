@@ -14,6 +14,16 @@ Watchlist/backups/
 .claude/
 */.claude/
 
+# Hot stocks generated outputs
+熱門股追蹤/__pycache__/
+熱門股追蹤/hot-stocks-deploy/
+熱門股追蹤/reports/*.html
+熱門股追蹤/reports/snapshots/
+熱門股追蹤/weekly_publish.log
+熱門股追蹤/*.html
+熱門股追蹤/*.txt
+熱門股追蹤/docs/*.pdf
+
 # OS
 .DS_Store
 Thumbs.db

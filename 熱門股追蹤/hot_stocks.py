@@ -37,7 +37,18 @@ MACRO_GROUPS = {
 # ─────────────────────────────────────────────────────────
 
 print("載入資料中...")
-close        = data.get("price:收盤價")
+close = data.get("price:收盤價")
+
+# 若本地資料不含最近交易日，強制從雲端更新
+from datetime import date as _date, timedelta as _td
+_prev = _date.today() - _td(days=1)
+while _prev.weekday() >= 5:
+    _prev -= _td(days=1)
+if close.index[-1].date() < _prev:
+    print("本地資料過期，強制從雲端更新...")
+    data.force_cloud_download = True
+    close = data.get("price:收盤價")
+
 turnover_raw = data.get("price:成交金額")
 market_value = data.get("etl:market_value")
 
@@ -85,6 +96,7 @@ twse_codes_json = json.dumps(load_twse_codes(), ensure_ascii=False, separators=(
 
 # ── 公司資訊 ──────────────────────────────────────────────
 company_info = data.get("company_basic_info")
+data.force_cloud_download = False
 stock_name = (
     company_info.set_index("stock_id")[company_info.columns[2]]
     .str.replace(r"股份有限公司|有限公司", "", regex=True).str.strip()

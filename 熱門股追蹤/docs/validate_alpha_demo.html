@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<title>Forward Return Validation — Demo</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #0d1117; color: #c9d1d9; font-family: -apple-system, "Segoe UI", sans-serif; padding: 32px 24px; }
+  h1 { color: #e6edf3; font-size: 20px; font-weight: 700; margin-bottom: 4px; }
+  .sub { color: #56616d; font-size: 13px; margin-bottom: 32px; }
+
+  /* ── 版型切換 ── */
+  .toggle { display: flex; gap: 8px; margin-bottom: 28px; }
+  .toggle button {
+    padding: 7px 18px; border-radius: 6px; border: 1px solid #30363d;
+    background: #161b22; color: #8b949e; cursor: pointer; font-size: 13px;
+  }
+  .toggle button.active { background: #1f6feb; color: #fff; border-color: #1f6feb; }
+
+  .layout { display: none; }
+  .layout.show { display: block; }
+
+  /* ── 共用 ── */
+  .sec { margin-bottom: 28px; }
+  .sec-title { color: #56a7d8; font-size: 13px; font-weight: 700; letter-spacing: .05em;
+               text-transform: uppercase; margin-bottom: 12px; border-bottom: 1px solid #21262d; padding-bottom: 6px; }
+
+  /* ── 摘要卡 ── */
+  .summary-cards { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 20px; }
+  .card {
+    background: #161b22; border: 1px solid #21262d; border-radius: 10px;
+    padding: 16px 20px; min-width: 170px; flex: 1;
+  }
+  .card-label { font-size: 11px; color: #56616d; text-transform: uppercase; letter-spacing: .05em; margin-bottom: 6px; }
+  .card-val { font-size: 26px; font-weight: 700; }
+  .card-sub { font-size: 12px; color: #56616d; margin-top: 2px; }
+  .green { color: #6fcf97; }
+  .blue  { color: #56a7d8; }
+  .gold  { color: #d6a85b; }
+  .muted { color: #74808c; }
+
+  /* ── 表格 ── */
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th { background: #161b22; color: #56616d; font-weight: 600; padding: 9px 12px;
+       text-align: left; border-bottom: 1px solid #21262d; }
+  td { padding: 9px 12px; border-bottom: 1px solid #161b22; vertical-align: middle; }
+  tr:hover td { background: #161b22; }
+  .tag {
+    display: inline-block; padding: 2px 8px; border-radius: 5px;
+    font-size: 12px; font-weight: 600; white-space: nowrap;
+  }
+  .pos { color: #6fcf97; font-weight: 700; }
+  .neg { color: #eb5757; font-weight: 700; }
+  .bar-wrap { display: flex; align-items: center; gap: 6px; }
+  .bar { height: 5px; border-radius: 3px; background: #6fcf97; }
+
+  /* ── 版型 B：嵌入週報的小區塊 ── */
+  .embed-box {
+    background: #161b22; border: 1px solid #21262d; border-radius: 10px;
+    padding: 16px 20px; margin-bottom: 16px;
+  }
+  .embed-title { font-size: 13px; color: #56a7d8; font-weight: 700; margin-bottom: 10px; }
+  .embed-row { display: flex; gap: 24px; flex-wrap: wrap; margin-bottom: 12px; }
+  .embed-stat { font-size: 13px; }
+  .embed-stat .lbl { color: #56616d; margin-right: 6px; }
+  .embed-theme-row { display: flex; align-items: center; gap: 8px; padding: 5px 0;
+                     border-bottom: 1px solid #21262d; font-size: 12px; }
+  .embed-theme-row:last-child { border-bottom: none; }
+  .embed-theme-name { width: 100px; color: #8b949e; }
+  .embed-alpha { width: 70px; font-weight: 700; }
+  .embed-wr { width: 50px; color: #74808c; }
+</style>
+</head>
+<body>
+
+<h1>Forward Return Validation — Display Demo</h1>
+<p class="sub">用假資料示範兩種版型，實際數字跑 validate_alpha.py 後產出</p>
+
+<div class="toggle">
+  <button class="active" onclick="show('a')">版型 A：獨立 HTML</button>
+  <button onclick="show('b')">版型 B：嵌入週報</button>
+</div>
+
+<!-- ═══════════════════════════════════════════ 版型 A ═══ -->
+<div id="la" class="layout show">
+
+  <div class="sec">
+    <div class="sec-title">整體匯總 — 市場調整後報酬（market-adjusted alpha）</div>
+    <p style="font-size:12px;color:#56616d;margin-bottom:14px">
+      信號條件：hot_pct ≥ 95% + accel ≥ 75%・樣本期間：2021-01 ~ 2026-05
+    </p>
+    <div class="summary-cards">
+      <div class="card">
+        <div class="card-label">樣本數</div>
+        <div class="card-val blue">4,821</div>
+        <div class="card-sub">個股×信號日</div>
+      </div>
+      <div class="card">
+        <div class="card-label">5日 alpha</div>
+        <div class="card-val green">+1.2%</div>
+        <div class="card-sub">勝率 57%</div>
+      </div>
+      <div class="card">
+        <div class="card-label">20日 alpha</div>
+        <div class="card-val green">+2.8%</div>
+        <div class="card-sub">勝率 60%</div>
+      </div>
+      <div class="card">
+        <div class="card-label">5日 Sharpe</div>
+        <div class="card-val gold">0.48</div>
+        <div class="card-sub">年化換算</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-title">按族群分組（5日 market-adjusted alpha）</div>
+    <table>
+      <thead>
+        <tr>
+          <th>族群</th>
+          <th>5日 alpha</th>
+          <th>5日勝率</th>
+          <th>20日 alpha</th>
+          <th>20日勝率</th>
+          <th>樣本數</th>
+          <th>勝率視覺化</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="tag" style="background:#4299b425;color:#56a7d8;border:1px solid #4299b455">伺服器/AI</span></td>
+          <td class="pos">+2.1%</td><td>62%</td>
+          <td class="pos">+4.3%</td><td>65%</td>
+          <td class="muted">312</td>
+          <td><div class="bar-wrap"><div class="bar" style="width:62px"></div><span style="font-size:11px;color:#56616d">62%</span></div></td>
+        </tr>
+        <tr>
+          <td><span class="tag" style="background:#6d8fd825;color:#6d8fd8;border:1px solid #6d8fd855">IC設計</span></td>
+          <td class="pos">+1.8%</td><td>60%</td>
+          <td class="pos">+3.1%</td><td>61%</td>
+          <td class="muted">428</td>
+          <td><div class="bar-wrap"><div class="bar" style="width:60px"></div><span style="font-size:11px;color:#56616d">60%</span></div></td>
+        </tr>
+        <tr>
+          <td><span class="tag" style="background:#4eaec325;color:#4eaec3;border:1px solid #4eaec355">散熱</span></td>
+          <td class="pos">+1.5%</td><td>58%</td>
+          <td class="pos">+2.9%</td><td>59%</td>
+          <td class="muted">215</td>
+          <td><div class="bar-wrap"><div class="bar" style="width:58px"></div><span style="font-size:11px;color:#56616d">58%</span></div></td>
+        </tr>
+        <tr>
+          <td><span class="tag" style="background:#56a7d825;color:#56a7d8;border:1px solid #56a7d855">封裝測試</span></td>
+          <td class="pos">+0.9%</td><td>54%</td>
+          <td class="pos">+1.8%</td><td>55%</td>
+          <td class="muted">187</td>
+          <td><div class="bar-wrap"><div class="bar" style="width:54px;background:#8792a0"></div><span style="font-size:11px;color:#56616d">54%</span></div></td>
+        </tr>
+        <tr>
+          <td><span class="tag" style="background:#5db98d25;color:#5db98d;border:1px solid #5db98d55">網通</span></td>
+          <td class="pos">+0.6%</td><td>52%</td>
+          <td style="color:#74808c">+0.4%</td><td style="color:#74808c">51%</td>
+          <td class="muted">143</td>
+          <td><div class="bar-wrap"><div class="bar" style="width:52px;background:#8792a0"></div><span style="font-size:11px;color:#56616d">52%</span></div></td>
+        </tr>
+        <tr>
+          <td><span class="tag" style="background:#74808c25;color:#74808c;border:1px solid #74808c55">被動元件</span></td>
+          <td style="color:#eb5757">-0.2%</td><td style="color:#74808c">48%</td>
+          <td style="color:#74808c">+0.1%</td><td style="color:#74808c">50%</td>
+          <td class="muted">98</td>
+          <td><div class="bar-wrap"><div class="bar" style="width:48px;background:#eb5757"></div><span style="font-size:11px;color:#56616d">48%</span></div></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+<!-- ═══════════════════════════════════════════ 版型 B ═══ -->
+<div id="lb" class="layout">
+
+  <p style="font-size:12px;color:#56616d;margin-bottom:18px">
+    以下模擬週報底部新增的驗證區塊（整體統計固定，族群欄每週根據本週上榜族群更新）
+  </p>
+
+  <div class="embed-box">
+    <div class="embed-title">📊 信號歷史驗證（market-adjusted alpha）</div>
+    <div class="embed-row">
+      <div class="embed-stat"><span class="lbl">整體 5日 alpha</span><span class="green" style="font-weight:700">+1.2%</span></div>
+      <div class="embed-stat"><span class="lbl">整體勝率</span><span class="green" style="font-weight:700">57%</span></div>
+      <div class="embed-stat"><span class="lbl">樣本數</span><span class="muted">N = 4,821</span></div>
+      <div class="embed-stat"><span class="lbl">期間</span><span class="muted">2021–2026</span></div>
+    </div>
+
+    <div style="font-size:11px;color:#56616d;margin-bottom:8px">本週上榜族群的歷史預期表現</div>
+    <div class="embed-theme-row">
+      <div class="embed-theme-name">伺服器/AI</div>
+      <div class="embed-alpha pos">+2.1%</div>
+      <div class="embed-wr">勝率 62%</div>
+      <div class="bar-wrap"><div class="bar" style="width:50px"></div></div>
+    </div>
+    <div class="embed-theme-row">
+      <div class="embed-theme-name">IC設計</div>
+      <div class="embed-alpha pos">+1.8%</div>
+      <div class="embed-wr">勝率 60%</div>
+      <div class="bar-wrap"><div class="bar" style="width:44px"></div></div>
+    </div>
+    <div class="embed-theme-row">
+      <div class="embed-theme-name">散熱</div>
+      <div class="embed-alpha pos">+1.5%</div>
+      <div class="embed-wr">勝率 58%</div>
+      <div class="bar-wrap"><div class="bar" style="width:38px"></div></div>
+    </div>
+    <div class="embed-theme-row">
+      <div class="embed-theme-name">封裝測試</div>
+      <div class="embed-alpha pos">+0.9%</div>
+      <div class="embed-wr">勝率 54%</div>
+      <div class="bar-wrap"><div class="bar" style="width:26px;background:#8792a0"></div></div>
+    </div>
+  </div>
+
+  <p style="font-size:11px;color:#3d4852;margin-top:8px">
+    ※ 以上為歷史統計，非預測。alpha = 個股報酬 − 同期加權指數報酬。
+  </p>
+
+</div>
+
+<script>
+function show(id) {
+  document.querySelectorAll('.layout').forEach(el => el.classList.remove('show'));
+  document.getElementById('l' + id).classList.add('show');
+  document.querySelectorAll('.toggle button').forEach((b, i) => {
+    b.classList.toggle('active', (i === 0 && id === 'a') || (i === 1 && id === 'b'));
+  });
+}
+</script>
+</body>
+</html>
